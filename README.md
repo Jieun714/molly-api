@@ -116,7 +116,7 @@ https://drive.google.com/file/d/13Jez_t-zlCY9VO-dskcfzjaCsl4pcMxr/view
 <br>
 
 ## **🌈 개선 사항**
-1️⃣ **장바구니 조회 성능 개선 - TPS 83.19% 향상(vuser 1000 기준)**
+1️⃣ **장바구니 조회 성능 개선 - TPS 119 → 218  약 83.2% 향상(vuser 1000 기준)**
 
 **문제 상황**
 
@@ -137,13 +137,12 @@ https://drive.google.com/file/d/13Jez_t-zlCY9VO-dskcfzjaCsl4pcMxr/view
     - 옵션 정보(사이즈, 컬러)가 다르다면 동일한 상품도 장바구니에 담을 수 있어, 상품 옵션 정보를 조회할 때 동일 상품에 대해 중복 조회하는 것을 확인
     - HashMap을 활용해 이미 조회한 상품의 옵션 정보라면 필터링 되도록 수정해 조회 성능 개선
 
-<img width="1335" alt="장바구니 조회 성능표" src="https://github.com/user-attachments/assets/66a40f4a-d395-4875-a13d-84b35bffcccc" />
-
+<img width="1335" height="684" alt="장바구니 조회 성능표" src="https://github.com/user-attachments/assets/b5a292b6-e47e-4b86-a787-7323bdd9313b" />
 
 <br>
 <br>
 
-2️⃣ **리뷰 좋아요 성능 개선 - 응답속도 약 28.4% 향상, DB 부하 약 5배 감소**
+2️⃣ **리뷰 좋아요 성능 개선 - 응답속도 7.4초 → 0.26초  약 28.5배 향상, DB 부하 약 5배 감소(vuser 1000 기준)**
 
 **문제 상황**
 
@@ -168,13 +167,12 @@ https://drive.google.com/file/d/13Jez_t-zlCY9VO-dskcfzjaCsl4pcMxr/view
 
 - 스레드가 많아질 수록 데드락 발생 가능성이 높아지고, DB부하가 증가할 것이라 판단
 - 이를 해결하기 위해 리뷰 좋아요 수 증가/감소 처리를 DB 대신 Redis를 통해 원자적으로 수행하도록 변경
-- 추가적인 개선 진행 중
 
 <br>
 
 **[응답속도 표]**
 
-<img width="861" alt="리뷰 좋아요 성능표" src="https://github.com/user-attachments/assets/ab4b3682-b4de-441e-a001-03c7c3de1635" />
+<img width="840" height="461" alt="리뷰 좋아요 응답 속도 개선" src="https://github.com/user-attachments/assets/036ba0fc-2ffd-4b6c-9490-eeabca8bc47d" />
 
 <br>
 
